@@ -16,7 +16,7 @@ In order to install Pulsar you must clone the repository and run the installer:
 
 The installer will copy the Pulsar files to the current working directory into a new Pulsar directory from where you can access it.
 
-> Info: It is necessary for Pulsar to be run in a mutable file system. This is also in favor of the user wants to add plugins.
+> Info: It is necessary for Pulsar to be run in a mutable file system. This allows users to add plugins, which modifies the Pulsar directory at runtime.
 
 In steam you need to disable Proton for Space Engineers and set the launch option to:
 
@@ -36,3 +36,10 @@ This also results in you requiring to rebuild the installation. Currently you wo
 The Pulsar binaries are being patched via autoPatchelfHook, while other libraries required by third party packages are symlinked in the Libraries directory of Pulsar.
 In order to provide Plugins with the necessary libraries without having to package all of them separately, LD_LIBRARY_PATH is being specified and the binaries are being wrapped, 
 allowing the Plugins to find the necessary libraries.
+
+# Credits and Licensing
+
+Pulsar is developed by [SpaceGT/Pulsar](https://github.com/SpaceGT/Pulsar) and is licensed under the MIT License.
+
+PulsarFlake is an independent NixOS packaging project and is not
+affiliated with the Pulsar project.
