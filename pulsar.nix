@@ -3,6 +3,7 @@ let
     # for plugins
     runtimeLibs = with pkgs; [
         gccNGPackages_15.libstdcxx
+        dotnet-runtime_10
         zlib
         libx11
         libxext
@@ -13,6 +14,7 @@ let
         pulseaudio
     ];
     libraryPath = lib.makeLibraryPath runtimeLibs;
+    dotnet-runtime_10 = pkgs.dotnet-runtime_10;
 in
 stdenv.mkDerivation rec {
     pname = "Pulsar";
@@ -55,7 +57,7 @@ stdenv.mkDerivation rec {
         ln -s ${pkgs.libsm}/lib/libSM.so.6 \
         $out/Libraries/Interface/libSM.so.6
 
-        wrapProgram $out/Interim.bin --prefix LD_LIBRARY_PATH : ${libraryPath}
+        wrapProgram $out/Interim.bin --prefix LD_LIBRARY_PATH : ${libraryPath} --prefix DOTNET_ROOT : ${dotnet-runtime_10}/share/dotnet
         wrapProgram $out/Modern.bin --prefix LD_LIBRARY_PATH : ${libraryPath}
     '';
 
