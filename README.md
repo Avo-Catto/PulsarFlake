@@ -2,9 +2,7 @@
 
 [Pulsar](https://github.com/SpaceGT/Pulsar) is a plugin manager for Space Engineers.
 
-**NOTE:** So far only Space Engineers 1 seems to work with it.
-
-Also, contacting me or committing pull requests is always welcome.
+Contacting me or committing pull requests is always welcome.
 
 # Usage
 

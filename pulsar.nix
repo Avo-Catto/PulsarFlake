@@ -12,6 +12,8 @@ let
         vulkan-loader
         libopus
         pulseaudio
+        pipewire
+        alsa-lib
     ];
     libraryPath = lib.makeLibraryPath runtimeLibs;
     dotnet-runtime_10 = pkgs.dotnet-runtime_10;
@@ -58,7 +60,7 @@ stdenv.mkDerivation rec {
         $out/Libraries/Interface/libSM.so.6
 
         wrapProgram $out/Interim.bin --prefix LD_LIBRARY_PATH : ${libraryPath} --prefix DOTNET_ROOT : ${dotnet-runtime_10}/share/dotnet
-        wrapProgram $out/Modern.bin --prefix LD_LIBRARY_PATH : ${libraryPath}
+        wrapProgram $out/Modern.bin --prefix LD_LIBRARY_PATH : ${libraryPath} --prefix DOTNET_ROOT : ${dotnet-runtime_10}/share/dotnet
     '';
 
     meta = with lib; {
